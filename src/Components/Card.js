@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Popup from './Popup'
 
 export const Card = ({el}) => {
-    // console.log(el)
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+
+
   return (
     <div className='border-solid border-2 shadow-xl mt-3 p-4 rounded-lg  '>
         <div className='font-semibold '>
@@ -11,7 +16,8 @@ export const Card = ({el}) => {
             <p>Status: {el.status} </p>
         </div>
         <div className='flex justify-center py-2'>
-            <button className=' border-solid border-2 border-red-500 px-2  py-2 hover:bg-red-500 hover:text-white rounded-lg '>More Details</button>
+            <button onClick={() => setIsPopupOpen(true)}className=' border-solid border-2 border-red-500 px-2  py-2 hover:bg-red-500 hover:text-white rounded-lg '>More Details</button>
+            {isPopupOpen&& <Popup el={el} isPopupOpen={isPopupOpen} setIsPopupOpen={setIsPopupOpen} />}
         </div>
     </div>
   )

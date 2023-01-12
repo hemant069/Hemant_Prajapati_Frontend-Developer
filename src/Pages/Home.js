@@ -5,6 +5,7 @@ import { Navbar } from "../Components/Navbar";
 import {  SearchForm } from "../Components/SearchForm";
 
 
+
 export const Home = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ export const Home = () => {
       <Banner/>
       <SearchForm />
       <DataGrid/>
+    
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { handlePage } from '../store/Action';
 
 export const Pagination = () => {
-    const { totalPage, page } = useSelector(state => state);
+    const { totalPage } = useSelector(state => state);
     const dispatch = useDispatch()
     const arr = new Array(totalPage).fill().map((el, i) => i + 1);
 
