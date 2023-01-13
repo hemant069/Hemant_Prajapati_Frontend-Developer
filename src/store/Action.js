@@ -12,7 +12,7 @@ import axios from "axios";
 export const GET_DATA_API = () => async (dispatch) => {
   dispatch({ type: LOADING_DATA });
   try {
-    const res = await axios.get("https://api.spacexdata.com/v3/capsules");
+    const res = await axios.get("https://api.spacexdata.com/v4/capsules");
 
     let totalLength = res.data.length;
     let totalPage = Math.ceil(totalLength / 10);
@@ -30,7 +30,7 @@ export const filterByStatus = (status) => async (dispatch) => {
   dispatch({ type: LOADING_DATA });
   try {
     const res = await axios.get(
-      `https://api.spacexdata.com/v3/capsules?status=${status}`
+      `https://api.spacexdata.com/v4/capsules?status=${status}`
     );
 
     dispatch({ type: FILTER_DATA_BY_STATUS, payload: res.data });
@@ -43,7 +43,7 @@ export const filterByType = (type) => async (dispatch) => {
   dispatch({ type: LOADING_DATA });
   try {
     const res = await axios.get(
-      `https://api.spacexdata.com/v3/capsules?type=${type}`
+      `https://api.spacexdata.com/v4/capsules?type=${type}`
     );
     dispatch({ type: FILTER_DATA_BY_TYPE, payload: res.data });
   } catch (e) {
@@ -56,7 +56,7 @@ export const filterByDate = (date) => async (dispatch) => {
   try {
     date = new Date(date).toISOString();
     const res = await axios.get(
-      `https://api.spacexdata.com/v3/capsules?original_launch=${date}`
+      `https://api.spacexdata.com/v4/capsules?original_launch=${date}`
     );
 
     dispatch({ type: FILTER_DATA_BY_DATE, payload: res.data });
@@ -68,7 +68,7 @@ export const filterByDate = (date) => async (dispatch) => {
 export const handlePage = (page) => async (dispatch) => {
   dispatch({ type: LOADING_DATA });
   try {
-    const res = await axios.get("https://api.spacexdata.com/v3/capsules");
+    const res = await axios.get("https://api.spacexdata.com/v4/capsules");
 
     let end = Number(page) * 10;
     let start = end - 10;

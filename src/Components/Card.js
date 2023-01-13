@@ -5,13 +5,13 @@ export const Card = ({el}) => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  console.log(el)
 
 
   return (
     <div className='border-solid border-2 shadow-xl mt-3 p-4 rounded-lg  '>
         <div className='font-semibold '>
-            <p>Mission: {el.missions.length>0 ? el.missions[0].name: "N/A"} </p>
-            <p>Original_launch : {el.original_launch?.split("T")[0]}</p>
+            <p>Serial {el.serial} </p>
             <p>Type: {el.type}</p>
             <p>Status: {el.status} </p>
         </div>

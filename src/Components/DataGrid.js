@@ -6,7 +6,7 @@ import { Pagination } from "./Pagination";
 
 export const DataGrid = () => {
   const dispatch = useDispatch();
-  const { data} = useSelector((state) => state);
+  const { data, loading, error, totalPage } = useSelector((state) => state);
   useEffect(() => {
     dispatch(GET_DATA_API());
   }, []);
